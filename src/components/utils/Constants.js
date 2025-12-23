@@ -31,19 +31,25 @@ export {getDecryptedUserPath}
   
   //=============================================================logout function
   export const handleLogout = () => {
-    localStorage.clear();
-    window.location.href = "http://localhost:54026/";
-    // if(landingUrl === "/lp/bmp"){
-    //   localStorage.clear();
-    //   window.location.href = "https://www.bookmyplayer.com/login";
-    // }else{
-    //   localStorage.clear();
-    //   window.location.href = "https://www.leadplaner.com/user/login";
-    // }
+    // Local Development
+    // localStorage.clear();
+    // window.location.href = "http://localhost:54026/";
+
+    // Production Server
+    if(landingUrl === "/lp/bmp"){
+      localStorage.clear();
+      window.location.href = "https://www.bookmyplayer.com/login";
+    }else{
+      localStorage.clear();
+      window.location.href = "https://leadplaner.com/user/login";
+    }
   };
 // =============================================================apis used
-const start = "http://localhost:3001/api";
-// const start = "https://fiduciagroup.leadplaner.com/api";
+// Local Development
+// const start = "http://localhost:3001/api";
+
+// Production Server
+const start = "https://leadplaner.com/api";
 const userId = localStorage.getItem('id');
 export const USER_INFO = start + "/user/getuserinfo";
 export const BMP_USER = start + "/bmp/getUser";
@@ -206,7 +212,7 @@ export const UPDATE_ACADEMY = start + "/bmp/academy/update/";
 export const ADD_BATCH = start + "/bmp/batch/add";
 export const GET_BATCH = start + "/bmp/batch/get";
 export const UPDATE_BATCH = start + "/bmp/batch/update/";
-export const CREATE_FOLDER = "http://core.leadplaner.com:3001/api/bmp/cloudinary/createFolder";
+export const CREATE_FOLDER = start + "/bmp/cloudinary/createFolder";
 export const GET_ALL_REVIEW = start + "/bmp/academy/getreviews";
 export const GET_REVIEW_REPLY = start + "/bmp/academy/getreviewreply";
 export const GET_ACC_REVIEW = start + "/bmp/academy/getreviewreport";
@@ -223,10 +229,10 @@ export const BMP_ACADEMY_ALL_REVIEWS = start + "/bmp/academy/getreviewsbytype";
 export const UPDATE_ACADEMY_REVIEW = start + "/bmp/academy/review/update/";
 
 //===============================================================league apis
-export const GET_ALL_LEAGUE = "http://core.leadplaner.com:3001/api/bmp/league/getall";
-export const ADD_LEAGUE = "http://core.leadplaner.com:3001/api/bmp/league/add";
-export const GET_LEAGUE_BY_ID = "http://core.leadplaner.com:3001/api/bmp/league/get/"
-export const UPDATE_LEAGUE = "http://core.leadplaner.com:3001/api/bmp/league/update/"
+export const GET_ALL_LEAGUE = start + "/bmp/league/getall";
+export const ADD_LEAGUE = start + "/bmp/league/add";
+export const GET_LEAGUE_BY_ID = start + "/bmp/league/get/"
+export const UPDATE_LEAGUE = start + "/bmp/league/update/"
 /* 
 post api : {{ezukal_3000}}/api/bmp/academy/addupdaterequest
 body: {
