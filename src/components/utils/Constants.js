@@ -31,19 +31,19 @@ export {getDecryptedUserPath}
   
   //=============================================================logout function
   export const handleLogout = () => {
-       // window.location.href = "http://core.leadplaner.com/";
-    if(landingUrl === "/lp/bmp"){
-      localStorage.clear();
-      window.location.href = "https://www.bookmyplayer.com/login";
-    }else{
-      localStorage.clear();
-      window.location.href = "https://www.leadplaner.com/user/login";
-    }
-    // window.location.href = " https://fiduciagroup.leadplaner.com/";
+    localStorage.clear();
+    window.location.href = "http://localhost:54026/";
+    // if(landingUrl === "/lp/bmp"){
+    //   localStorage.clear();
+    //   window.location.href = "https://www.bookmyplayer.com/login";
+    // }else{
+    //   localStorage.clear();
+    //   window.location.href = "https://www.leadplaner.com/user/login";
+    // }
   };
-// =============================================================apis used  
-// const start = "http://core.leadplaner.com:3001/api";
-const start = "https://fiduciagroup.leadplaner.com/api";
+// =============================================================apis used
+const start = "http://localhost:3001/api";
+// const start = "https://fiduciagroup.leadplaner.com/api";
 const userId = localStorage.getItem('id');
 export const USER_INFO = start + "/user/getuserinfo";
 export const BMP_USER = start + "/bmp/getUser";
