@@ -4,8 +4,6 @@ import CryptoJS from 'crypto-js';
 const secretKey = 'mySecretKey123';
 // const secretKey = "miyamura"; // Set your secret key for login
 
-const landingUrl = localStorage.getItem("landingUrl")
-
 const getDecryptedToken = () => {
   const encryptedToken = localStorage.getItem('jwtToken');
 
@@ -31,18 +29,8 @@ export {getDecryptedUserPath}
   
   //=============================================================logout function
   export const handleLogout = () => {
-    // Local Development
-    // localStorage.clear();
-    // window.location.href = "http://localhost:54026/";
-
-    // Production Server
-    if(landingUrl === "/lp/bmp"){
-      localStorage.clear();
-      window.location.href = "https://sport.bookmyplayer.com/login";
-    }else{
-      localStorage.clear();
-      window.location.href = "https://sport.bookmyplayer.com/user/login";
-    }
+    localStorage.clear();
+    window.location.href = "/login";
   };
 // =============================================================apis used
 // Local Development

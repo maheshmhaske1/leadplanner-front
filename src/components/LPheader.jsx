@@ -12,6 +12,7 @@ import {
   BMP_USER,
   getDecryptedToken,
   getDecryptedUserPath,
+  handleLogout,
 } from "./utils/Constants";
 import HelpModal from "./HelpModal";
 import NotificationModal from "./NotificationModal.jsx";
@@ -230,17 +231,6 @@ const LPheader = () => {
     setIsHelpModalOpen(false);
   };
 
-  const handleLogout = () => {
-    console.log(landingUrl)
-    if (landingUrl === "/lp/bmp/overview" || landingUrl === '/lp/bmp/admin') {
-      localStorage.clear();
-      window.location.href = "https://www.bookmyplayer.com/login";
-    } else {
-      localStorage.clear();
-      window.location.href = "https://www.leadplaner.com/user/login";
-    }
-  };
-
   const handleAddInfo = () => {
 
   }
@@ -361,7 +351,7 @@ const LPheader = () => {
                 <p>About this application</p>
               </div>
               <div className="signOutDiv">
-                <p onClick={handleLogout}>Sign Out</p>
+                <p className="signOutAction" onClick={handleLogout}>Sign Out</p>
                 <p>Privacy policy</p>
               </div>
             </div>

@@ -74,6 +74,10 @@ import ViewTournament from "./components/master-settings/tournament/ViewTourname
 import UpdateTournament from "./components/master-settings/tournament/UpdateTournament.jsx";
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Navigate to="/login" replace />,
+  },
+  {
     path: "/:auth",
     element: <Testing />,
     errorElement:<Error/>,

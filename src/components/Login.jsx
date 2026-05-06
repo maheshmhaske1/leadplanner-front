@@ -16,7 +16,7 @@
 //     "password": "123"
 // }
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { LOGIN, OTP } from "./utils/Constants";
 import { useNavigate } from "react-router-dom";
@@ -31,15 +31,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-    
-  useEffect(() => {
-    // Check if a JWT token is already stored in localStorage
-    const encryptedToken = localStorage.getItem("jwtToken");
-    if (encryptedToken) {
-      const landingUrl = localStorage.getItem("landingUrl");
-      navigate(landingUrl);
-    }
-  }, []); // Empty dependency array to run only once on component mount
 
   const handleUserName = (e) => {
     setEmail(e.target.value);
@@ -94,7 +85,7 @@ const Login = () => {
         ) {
           alert("Your session has expired. Please login again.");
           localStorage.removeItem("jwtToken");
-          navigate("/");
+          navigate("/login");
         } else {
           console.log(error);
         }
@@ -130,16 +121,15 @@ const Login = () => {
         ) {
           alert("Your session has expired. Please login again.");
           localStorage.removeItem("jwtToken");
-          navigate("/");
+          navigate("/login");
         } else {
           console.log(error);
         }
       });
   }
-  // Conditionally render the login form or null based on the presence of the token
+  // Always render login so app startup lands on /login consistently.
   const renderLoginForm = () => {
-    const encryptedToken = localStorage.getItem("jwtToken");
-    return encryptedToken ? null : (
+    return (
       <>
         <LoginHeader />
         <main className="main-registration">

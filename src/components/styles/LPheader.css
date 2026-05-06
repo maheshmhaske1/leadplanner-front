@@ -123,7 +123,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-   position: relative;
+  position: relative;
+  cursor: pointer;
 }
 
 .borderLeft {
@@ -377,6 +378,9 @@ letter-spacing: -0.02563rem;
   letter-spacing: -0.02563rem;
 }
 .signOutDiv p:hover{
+  cursor: pointer;
+}
+.signOutAction{
   cursor: pointer;
 }
 @media (max-width: 768px) {
