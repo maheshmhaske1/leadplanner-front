@@ -38,10 +38,10 @@ export {getDecryptedUserPath}
     // Production Server
     if(landingUrl === "/lp/bmp"){
       localStorage.clear();
-      window.location.href = "https://www.bookmyplayer.com/login";
+      window.location.href = "http://sport.bookmyplayer.com/login";
     }else{
       localStorage.clear();
-      window.location.href = "https://leadplaner.com/user/login";
+      window.location.href = "http://sport.bookmyplayer.com/user/login";
     }
   };
 // =============================================================apis used
@@ -49,7 +49,7 @@ export {getDecryptedUserPath}
 // const start = "http://localhost:3001/api";
 
 // Production Server
-const start = "https://leadplaner.com/api";
+const start = "http://sport.bookmyplayer.com/api";
 const userId = localStorage.getItem('id');
 export const USER_INFO = start + "/user/getuserinfo";
 export const BMP_USER = start + "/bmp/getUser";
